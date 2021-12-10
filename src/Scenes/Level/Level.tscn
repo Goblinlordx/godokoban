@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Scenes/Level/Level.gd" type="Script" id=1]
+[ext_resource path="res://src/Scenes/Level/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Scenes/Level/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Scenes/Level/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Scenes/Level/Goal.tscn" type="PackedScene" id=5]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+wall = ExtResource( 2 )
+player = ExtResource( 3 )
+box = ExtResource( 4 )
+goal = ExtResource( 5 )
+
+[node name="Tiles" type="TileMap" parent="."]
+cell_size = Vector2( 16, 16 )
+format = 1
