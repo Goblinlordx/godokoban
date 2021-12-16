@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Assets/goal.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 7 )
+extents = Vector2( 2, 2 )
 
 [node name="Area2D" type="Area2D" groups=["level_piece"]]
 script = ExtResource( 1 )

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Scenes/Level/GUI/StatDisplay.gd" type="Script" id=1]
+
+[node name="CenterContainer" type="CenterContainer"]
+margin_right = 97.0
+margin_bottom = 48.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 17.0
+margin_right = 89.0
+margin_bottom = 31.0
+text = "Label:  Value"
+__meta__ = {
+"_edit_use_anchors_": false
+}

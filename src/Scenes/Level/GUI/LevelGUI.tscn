@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Scenes/Level/GUI/StatDisplay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Scenes/Level/GUI/LevelGUI.gd" type="Script" id=2]
+[ext_resource path="res://src/Theme/BasicTheme.tres" type="Theme" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.839844, 0.839844, 0.839844, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 417.0
+margin_right = 800.0
+margin_bottom = 450.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer"]
+margin_right = 800.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 0, 32 )
+texture = SubResource( 2 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 800.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="LevelDisplay" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_right = 130.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 100, 0 )
+label = "Level"
+value = "-"
+
+[node name="MoveDisplay" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 134.0
+margin_right = 264.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 100, 0 )
+label = "Moves"
+value = "-"
+
+[node name="PushDisplay" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 268.0
+margin_right = 398.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 100, 0 )
+label = "Pushes"
+value = "-"
+
+[node name="TimerDisplay" parent="VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 402.0
+margin_right = 800.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+label = "Time"
+value = "-"

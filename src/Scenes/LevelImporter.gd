@@ -49,6 +49,7 @@ func load_file(fp):
 	var file = File.new()
 	file.open(fp, File.READ)
 	var text = file.get_as_text()
+	file.close()
 	var lines = text.split('\n', true)
 	var level_lines = []
 	var levels = []

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Scenes/LevelImporter.gd" type="Script" id=1]
+[ext_resource path="res://src/Scenes/Game.gd" type="Script" id=3]
+[ext_resource path="res://src/Scenes/Global/GlobalControls.tscn" type="PackedScene" id=4]
+
+[node name="Scene2D" type="Node2D"]
+
+[node name="GlobalControls" parent="." instance=ExtResource( 4 )]
+
+[node name="Game" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="LevelImporter" type="Node" parent="Game"]
+script = ExtResource( 1 )

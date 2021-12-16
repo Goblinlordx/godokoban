@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Scenes/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://src/Scenes/Level/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Scenes/Level/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Scenes/Level/Box.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Scenes/Level/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Scenes/Level/Ticker.gd" type="Script" id=6]
+[ext_resource path="res://src/Scenes/Stage/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Scenes/Level/GUI/LevelGUI.tscn" type="PackedScene" id=8]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,3 +19,15 @@ goal = ExtResource( 5 )
 [node name="Tiles" type="TileMap" parent="."]
 cell_size = Vector2( 16, 16 )
 format = 1
+
+[node name="Ticker" type="Node" parent="."]
+pause_mode = 1
+script = ExtResource( 6 )
+
+[node name="GUI" parent="." instance=ExtResource( 8 )]
+
+[node name="Transition" parent="." instance=ExtResource( 7 )]
+
+[connection signal="level_change" from="." to="GUI" method="_on_Level_level_change"]
+[connection signal="stats_change" from="." to="GUI" method="_on_Level_stats_change"]
+[connection signal="tick" from="Ticker" to="GUI" method="_on_Ticker_tick"]

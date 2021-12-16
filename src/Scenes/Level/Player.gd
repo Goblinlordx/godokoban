@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var grid_size = 16
 onready var ray = $RayCast2D
 signal check_goals
+signal move(push)
 
 var disabled = false
 var animating = false
@@ -14,9 +15,13 @@ var inputs = {
 	'ui_right': Vector2.RIGHT
 }
 
+func set_camera(pos: Vector2):
+	pass
+
 func _input(event):
 	if disabled:
 		return
+	
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(inputs[dir])
@@ -30,11 +35,13 @@ func move(vec):
 	
 	if !ray.is_colliding():
 		anim = true
+		emit_signal('move', false)
 	else:
 		var obj = ray.get_collider()
 		if obj.is_in_group('movable'):
 			if obj.move(next_vec):
 				anim = true
+				emit_signal('move', true)
 	
 	if anim:
 		$Tween.interpolate_property(
