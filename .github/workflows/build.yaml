@@ -7,9 +7,6 @@ on:
 jobs:
   Godot:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [HTML5]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -18,13 +15,13 @@ jobs:
         id: build
         uses: josephbmanley/build-godot-action@v1.4.1
         with:
-          name: example
-          preset: ${{ matrix.platform }}
+          name: godokoban
+          preset: HTML5
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages
-          folder: build/web
+          folder: ${{ github.workspace }}/${{ steps.build.outputs.build }}
       # - name: Upload Artifact
       #   uses: actions/upload-artifact@v2
       #   with:
