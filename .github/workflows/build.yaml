@@ -15,15 +15,10 @@ jobs:
         id: build
         uses: josephbmanley/build-godot-action@v1.4.1
         with:
-          name: godokoban
+          name: index
           preset: HTML5
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages
           folder: ${{ github.workspace }}/${{ steps.build.outputs.build }}
-      # - name: Upload Artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Client - ${{ matrix.platform }}
-      #     path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
