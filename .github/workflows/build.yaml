@@ -15,7 +15,7 @@ jobs:
         id: build
         uses: josephbmanley/build-godot-action@v1.4.1
         with:
-          name: index
+          name: index.html
           preset: HTML5
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
